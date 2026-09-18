@@ -7,6 +7,7 @@ from app.core.logger import setup_logging
 from app.discovery.cron import discover_cron_locations
 from app.discovery.systemd import discover_systemd_locations
 from app.discovery.shell_startup import discover_shell_startup_files
+from app.discovery.ssh import discover_ssh_locations
 
 
 def main() -> None:
@@ -19,6 +20,12 @@ def main() -> None:
         "--version",
         action="version",
         version=f"%(prog)s {settings.version}",
+    )
+
+    parser.add_argument(
+        "--scan-ssh",
+        action="store_true",
+        help="Discover SSH persistence locations.",
     )
 
     parser.add_argument(
@@ -51,6 +58,15 @@ def main() -> None:
 
     print(f"{settings.app_name} {settings.version}")
     print("Core foundation initialized.")
+
+    if args.scan_ssh:
+        print("\nSSH Persistence Locations:")
+
+        for finding in discover_ssh_locations():
+            print(
+                f"- {finding['path']} "
+                f"({finding['type']})"
+            )
 
     if args.scan_shell:
         print("\nShell Startup Persistence Files:")
