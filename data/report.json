@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T09:18:39.009754+00:00",
+  "generated_at": "2026-09-18T09:23:47.739590+00:00",
   "tool": "PersistHawk",
   "report": {
     "status": "completed",
@@ -9,503 +9,808 @@
           "username": "root",
           "uid": "0",
           "home": "/root",
-          "shell": "/usr/bin/zsh"
+          "shell": "/usr/bin/zsh",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "daemon",
           "uid": "1",
           "home": "/usr/sbin",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "bin",
           "uid": "2",
           "home": "/bin",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "sys",
           "uid": "3",
           "home": "/dev",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "sync",
           "uid": "4",
           "home": "/bin",
-          "shell": "/bin/sync"
+          "shell": "/bin/sync",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "games",
           "uid": "5",
           "home": "/usr/games",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "man",
           "uid": "6",
           "home": "/var/cache/man",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "lp",
           "uid": "7",
           "home": "/var/spool/lpd",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "mail",
           "uid": "8",
           "home": "/var/mail",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "news",
           "uid": "9",
           "home": "/var/spool/news",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "uucp",
           "uid": "10",
           "home": "/var/spool/uucp",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "proxy",
           "uid": "13",
           "home": "/bin",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "www-data",
           "uid": "33",
           "home": "/var/www",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "backup",
           "uid": "34",
           "home": "/var/backups",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "list",
           "uid": "38",
           "home": "/var/list",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "irc",
           "uid": "39",
           "home": "/run/ircd",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "_apt",
           "uid": "42",
           "home": "/nonexistent",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "nobody",
           "uid": "65534",
           "home": "/nonexistent",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "systemd-network",
           "uid": "997",
           "home": "/",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "_dhcpcd",
           "uid": "995",
           "home": "/var/lib/dhcpcd",
-          "shell": "/sbin/nologin"
+          "shell": "/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "systemd-timesync",
           "uid": "989",
           "home": "/",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "messagebus",
           "uid": "988",
           "home": "/nonexistent",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "tss",
           "uid": "986",
           "home": "/",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "strongswan",
           "uid": "100",
           "home": "/var/lib/strongswan",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "tcpdump",
           "uid": "985",
           "home": "/nonexistent",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "sshd",
           "uid": "984",
           "home": "/run/sshd",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "_rpc",
           "uid": "101",
           "home": "/run/rpcbind",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "statd",
           "uid": "102",
           "home": "/var/lib/nfs",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "dnsmasq",
           "uid": "983",
           "home": "/var/lib/misc",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "avahi",
           "uid": "103",
           "home": "/run/avahi-daemon",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "nm-openvpn",
           "uid": "981",
           "home": "/var/lib/openvpn/chroot",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "speech-dispatcher",
           "uid": "980",
           "home": "/run/speech-dispatcher",
-          "shell": "/bin/false"
+          "shell": "/bin/false",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "usbmux",
           "uid": "104",
           "home": "/var/lib/usbmux",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "nm-openconnect",
           "uid": "979",
           "home": "/",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "pipewire",
           "uid": "978",
           "home": "/nonexistent",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "saned",
           "uid": "105",
           "home": "/var/lib/saned",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "lightdm",
           "uid": "106",
           "home": "/var/lib/lightdm",
-          "shell": "/bin/false"
+          "shell": "/bin/false",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "polkitd",
           "uid": "977",
           "home": "/",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "rtkit",
           "uid": "976",
           "home": "/proc",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "colord",
           "uid": "975",
           "home": "/var/lib/colord",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "pcscd",
           "uid": "974",
           "home": "/",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "geoclue",
           "uid": "973",
           "home": "/var/lib/geoclue",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "Debian-snmp",
           "uid": "107",
           "home": "/var/lib/snmp",
-          "shell": "/bin/false"
+          "shell": "/bin/false",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "sslh",
           "uid": "108",
           "home": "/nonexistent",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "stunnel",
           "uid": "971",
           "home": "/var/run/stunnel",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "cups-pk-helper",
           "uid": "109",
           "home": "/nonexistent",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "redsocks",
           "uid": "110",
           "home": "/var/run/redsocks",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "_gophish",
           "uid": "111",
           "home": "/var/lib/gophish",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "iodine",
           "uid": "112",
           "home": "/run/iodine",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "miredo",
           "uid": "113",
           "home": "/var/run/miredo",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "redis",
           "uid": "114",
           "home": "/var/lib/redis",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "postgres",
           "uid": "115",
           "home": "/var/lib/postgresql",
-          "shell": "/bin/bash"
+          "shell": "/bin/bash",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "mosquitto",
           "uid": "970",
           "home": "/var/lib/mosquitto",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "inetsim",
           "uid": "116",
           "home": "/var/lib/inetsim",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "mysql",
           "uid": "969",
           "home": "/nonexistent",
-          "shell": "/bin/false"
+          "shell": "/bin/false",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "_gvm",
           "uid": "117",
           "home": "/var/lib/openvas",
-          "shell": "/usr/sbin/nologin"
+          "shell": "/usr/sbin/nologin",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "username": "kali",
           "uid": "1000",
           "home": "/home/kali",
-          "shell": "/usr/bin/zsh"
+          "shell": "/usr/bin/zsh",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         }
       ],
       "ssh": [
         {
           "path": "/etc/ssh/sshd_config",
           "type": "file",
-          "status": "present"
+          "status": "present",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "path": "/etc/ssh/ssh_config",
           "type": "file",
-          "status": "present"
+          "status": "present",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         }
       ],
       "shell_startup": [
         {
           "path": "/home/kali/.bashrc",
           "type": "file",
-          "status": "present"
+          "status": "present",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "path": "/home/kali/.profile",
           "type": "file",
-          "status": "present"
+          "status": "present",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "path": "/home/kali/.zshrc",
           "type": "file",
-          "status": "present"
+          "status": "present",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         }
       ],
       "systemd": [
         {
           "path": "/etc/systemd/system",
           "type": "directory",
-          "status": "present"
+          "status": "present",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "path": "/usr/lib/systemd/system",
           "type": "directory",
-          "status": "present"
+          "status": "present",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         },
         {
           "path": "/lib/systemd/system",
           "type": "directory",
-          "status": "present"
+          "status": "present",
+          "risk_score": 0,
+          "severity": "LOW",
+          "risk_reasons": []
         }
       ],
       "cron": [
         {
           "path": "/etc/crontab",
           "type": "file",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Cron persistence location detected."
+          ]
         },
         {
           "path": "/etc/cron.d",
           "type": "directory",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Cron persistence location detected."
+          ]
         },
         {
           "path": "/etc/cron.daily",
           "type": "directory",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Cron persistence location detected."
+          ]
         },
         {
           "path": "/etc/cron.hourly",
           "type": "directory",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Cron persistence location detected."
+          ]
         },
         {
           "path": "/etc/cron.weekly",
           "type": "directory",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Cron persistence location detected."
+          ]
         },
         {
           "path": "/etc/cron.monthly",
           "type": "directory",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Cron persistence location detected."
+          ]
         }
       ],
       "timers": [
         {
           "path": "/usr/lib/systemd/system/apt-daily-upgrade.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/apt-daily.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/dpkg-db-backup.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/e2scrub_all.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/fstrim.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/logrotate.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/man-db.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/pg_basebackup@.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/pg_compresswal@.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/pg_dump@.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/phpsessionclean.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/plocate-updatedb.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/sysstat-collect.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/sysstat-rotate.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/sysstat-summary.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         },
         {
           "path": "/usr/lib/systemd/system/systemd-tmpfiles-clean.timer",
           "type": "systemd-timer",
-          "status": "present"
+          "status": "present",
+          "risk_score": 10,
+          "severity": "LOW",
+          "risk_reasons": [
+            "Systemd timer persistence location detected."
+          ]
         }
       ]
     }
