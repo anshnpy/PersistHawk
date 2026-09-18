@@ -22,8 +22,10 @@ def test_authorized_keys_risk():
 
     result = calculate_risk_score(finding)
 
-    assert result["risk_score"] == 20
+    assert result["risk_score"] == 25
     assert result["severity"] == "MEDIUM"
+    assert "SSH authorized keys location detected." in result["risk_reasons"]
+    assert "Hidden configuration path detected." in result["risk_reasons"]
 
 
 def test_hidden_path_risk():
