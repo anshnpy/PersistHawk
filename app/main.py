@@ -182,6 +182,22 @@ def main() -> None:
                 print(f"Confidence: {result.get('confidence_score')}")
                 print(f"Integrity: {result.get('integrity')}")
 
+                evidence = result.get("evidence") or {}
+
+                if evidence:
+                    print("\nEvidence Details:")
+                    print(f"Evidence Path: {evidence.get('path', 'N/A')}")
+                    print(f"SHA256: {evidence.get('sha256', 'N/A')}")
+
+                    metadata = evidence.get("metadata") or {}
+                    if metadata:
+                        print(f"File Size: {metadata.get('size', 'N/A')}")
+                        print(f"Owner UID: {metadata.get('uid', 'N/A')}")
+                        print(f"Owner GID: {metadata.get('gid', 'N/A')}")
+                        print(f"Permissions: {metadata.get('mode', 'N/A')}")
+                else:
+                    print("\nEvidence Details: Not available")
+
     if args.investigate:
         scan_results = run_combined_scan()
         selected = None
