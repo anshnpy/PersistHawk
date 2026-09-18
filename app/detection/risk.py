@@ -22,9 +22,13 @@ def calculate_risk_score(finding: dict[str, Any]) -> dict[str, Any]:
         score += 10
         reasons.append("Cron persistence location detected.")
 
-    if ".config" in path:
+    if "/tmp/" in path or "/var/tmp/" in path:
+        score += 25
+        reasons.append("Temporary directory path detected.")
+
+    if "/." in path:
         score += 5
-        reasons.append("User-level configuration location detected.")
+        reasons.append("Hidden configuration path detected.")
 
     if score >= 40:
         severity = "HIGH"

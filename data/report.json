@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T09:23:47.739590+00:00",
+  "generated_at": "2026-09-18T09:25:56.075512+00:00",
   "tool": "PersistHawk",
   "report": {
     "status": "completed",
@@ -542,25 +542,31 @@
           "path": "/home/kali/.bashrc",
           "type": "file",
           "status": "present",
-          "risk_score": 0,
+          "risk_score": 5,
           "severity": "LOW",
-          "risk_reasons": []
+          "risk_reasons": [
+            "Hidden configuration path detected."
+          ]
         },
         {
           "path": "/home/kali/.profile",
           "type": "file",
           "status": "present",
-          "risk_score": 0,
+          "risk_score": 5,
           "severity": "LOW",
-          "risk_reasons": []
+          "risk_reasons": [
+            "Hidden configuration path detected."
+          ]
         },
         {
           "path": "/home/kali/.zshrc",
           "type": "file",
           "status": "present",
-          "risk_score": 0,
+          "risk_score": 5,
           "severity": "LOW",
-          "risk_reasons": []
+          "risk_reasons": [
+            "Hidden configuration path detected."
+          ]
         }
       ],
       "systemd": [
