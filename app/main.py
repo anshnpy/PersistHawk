@@ -5,6 +5,7 @@ import argparse
 from app.core.config import settings
 from app.core.logger import setup_logging
 from app.discovery.cron import discover_cron_locations
+from app.discovery.systemd import discover_systemd_locations
 
 
 def main() -> None:
@@ -17,6 +18,12 @@ def main() -> None:
         "--version",
         action="version",
         version=f"%(prog)s {settings.version}",
+    )
+
+    parser.add_argument(
+        "--scan-systemd",
+        action="store_true",
+        help="Discover systemd persistence locations.",
     )
 
     parser.add_argument(
@@ -37,6 +44,15 @@ def main() -> None:
 
     print(f"{settings.app_name} {settings.version}")
     print("Core foundation initialized.")
+
+    if args.scan_systemd:
+        print("\nSystemd Persistence Locations:")
+
+        for finding in discover_systemd_locations():
+            print(
+                f"- {finding['path']} "
+                f"({finding['type']})"
+            )
 
     if args.scan_cron:
         print("\nCron Persistence Locations:")
