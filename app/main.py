@@ -4,6 +4,7 @@ import argparse
 
 from app.core.config import settings
 from app.core.logger import setup_logging
+from app.core.report import export_json_report
 from app.discovery.cron import discover_cron_locations
 from app.discovery.systemd import discover_systemd_locations
 from app.discovery.timers import discover_systemd_timers
@@ -32,6 +33,14 @@ def main() -> None:
     parser.add_argument("--scan-systemd", action="store_true")
     parser.add_argument("--scan-cron", action="store_true")
     parser.add_argument("--scan-timers", action="store_true")
+
+    parser.add_argument(
+        "--export-report",
+        metavar="PATH",
+        nargs="?",
+        const="data/report.json",
+        help="Export a JSON report.",
+    )
 
     parser.add_argument(
         "--analyze-timer",
@@ -112,6 +121,16 @@ def main() -> None:
                 f"- [{flag['severity']}] "
                 f"{flag['reason']}"
             )
+
+    if args.export_report:
+        output = export_json_report(
+            {
+                "status": "completed",
+                "findings": [],
+            },
+            args.export_report,
+        )
+        print(f"\nJSON report exported: {output}")
 
 
 if __name__ == "__main__":
