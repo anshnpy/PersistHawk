@@ -1,7 +1,10 @@
+"""PersistHawk CLI entry point."""
+
 import argparse
 
 from app.core.config import settings
 from app.core.logger import setup_logging
+from app.discovery.cron import discover_cron_locations
 
 
 def main() -> None:
@@ -17,6 +20,12 @@ def main() -> None:
     )
 
     parser.add_argument(
+        "--scan-cron",
+        action="store_true",
+        help="Discover cron persistence locations.",
+    )
+
+    parser.add_argument(
         "--log-level",
         default=settings.log_level,
         choices=["DEBUG", "INFO", "WARNING", "ERROR"],
@@ -28,6 +37,15 @@ def main() -> None:
 
     print(f"{settings.app_name} {settings.version}")
     print("Core foundation initialized.")
+
+    if args.scan_cron:
+        print("\nCron Persistence Locations:")
+
+        for finding in discover_cron_locations():
+            print(
+                f"- {finding['path']} "
+                f"({finding['type']})"
+            )
 
 
 if __name__ == "__main__":
