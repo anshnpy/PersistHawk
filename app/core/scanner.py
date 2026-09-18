@@ -24,6 +24,12 @@ def enrich_findings(findings: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for finding in findings:
         result = dict(finding)
 
+        if "type" not in result:
+            result["type"] = "account"
+
+        if "path" not in result:
+            result["path"] = result.get("username") or result.get("home") or "N/A"
+
         risk_data = calculate_risk_score(result)
         confidence_data = calculate_confidence(risk_data)
 
