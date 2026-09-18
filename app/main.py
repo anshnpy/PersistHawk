@@ -5,6 +5,7 @@ import argparse
 from app.core.config import settings
 from app.core.logger import setup_logging
 from app.core.report import export_json_report
+from app.core.scanner import run_combined_scan
 from app.discovery.cron import discover_cron_locations
 from app.discovery.systemd import discover_systemd_locations
 from app.discovery.timers import discover_systemd_timers
@@ -123,10 +124,12 @@ def main() -> None:
             )
 
     if args.export_report:
+        scan_results = run_combined_scan()
+
         output = export_json_report(
             {
                 "status": "completed",
-                "findings": [],
+                "findings": scan_results,
             },
             args.export_report,
         )

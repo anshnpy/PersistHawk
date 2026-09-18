@@ -1,8 +1,513 @@
 {
-  "generated_at": "2026-09-18T09:16:19.637798+00:00",
+  "generated_at": "2026-09-18T09:18:39.009754+00:00",
   "tool": "PersistHawk",
   "report": {
     "status": "completed",
-    "findings": []
+    "findings": {
+      "users": [
+        {
+          "username": "root",
+          "uid": "0",
+          "home": "/root",
+          "shell": "/usr/bin/zsh"
+        },
+        {
+          "username": "daemon",
+          "uid": "1",
+          "home": "/usr/sbin",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "bin",
+          "uid": "2",
+          "home": "/bin",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "sys",
+          "uid": "3",
+          "home": "/dev",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "sync",
+          "uid": "4",
+          "home": "/bin",
+          "shell": "/bin/sync"
+        },
+        {
+          "username": "games",
+          "uid": "5",
+          "home": "/usr/games",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "man",
+          "uid": "6",
+          "home": "/var/cache/man",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "lp",
+          "uid": "7",
+          "home": "/var/spool/lpd",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "mail",
+          "uid": "8",
+          "home": "/var/mail",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "news",
+          "uid": "9",
+          "home": "/var/spool/news",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "uucp",
+          "uid": "10",
+          "home": "/var/spool/uucp",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "proxy",
+          "uid": "13",
+          "home": "/bin",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "www-data",
+          "uid": "33",
+          "home": "/var/www",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "backup",
+          "uid": "34",
+          "home": "/var/backups",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "list",
+          "uid": "38",
+          "home": "/var/list",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "irc",
+          "uid": "39",
+          "home": "/run/ircd",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "_apt",
+          "uid": "42",
+          "home": "/nonexistent",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "nobody",
+          "uid": "65534",
+          "home": "/nonexistent",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "systemd-network",
+          "uid": "997",
+          "home": "/",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "_dhcpcd",
+          "uid": "995",
+          "home": "/var/lib/dhcpcd",
+          "shell": "/sbin/nologin"
+        },
+        {
+          "username": "systemd-timesync",
+          "uid": "989",
+          "home": "/",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "messagebus",
+          "uid": "988",
+          "home": "/nonexistent",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "tss",
+          "uid": "986",
+          "home": "/",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "strongswan",
+          "uid": "100",
+          "home": "/var/lib/strongswan",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "tcpdump",
+          "uid": "985",
+          "home": "/nonexistent",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "sshd",
+          "uid": "984",
+          "home": "/run/sshd",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "_rpc",
+          "uid": "101",
+          "home": "/run/rpcbind",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "statd",
+          "uid": "102",
+          "home": "/var/lib/nfs",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "dnsmasq",
+          "uid": "983",
+          "home": "/var/lib/misc",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "avahi",
+          "uid": "103",
+          "home": "/run/avahi-daemon",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "nm-openvpn",
+          "uid": "981",
+          "home": "/var/lib/openvpn/chroot",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "speech-dispatcher",
+          "uid": "980",
+          "home": "/run/speech-dispatcher",
+          "shell": "/bin/false"
+        },
+        {
+          "username": "usbmux",
+          "uid": "104",
+          "home": "/var/lib/usbmux",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "nm-openconnect",
+          "uid": "979",
+          "home": "/",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "pipewire",
+          "uid": "978",
+          "home": "/nonexistent",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "saned",
+          "uid": "105",
+          "home": "/var/lib/saned",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "lightdm",
+          "uid": "106",
+          "home": "/var/lib/lightdm",
+          "shell": "/bin/false"
+        },
+        {
+          "username": "polkitd",
+          "uid": "977",
+          "home": "/",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "rtkit",
+          "uid": "976",
+          "home": "/proc",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "colord",
+          "uid": "975",
+          "home": "/var/lib/colord",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "pcscd",
+          "uid": "974",
+          "home": "/",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "geoclue",
+          "uid": "973",
+          "home": "/var/lib/geoclue",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "Debian-snmp",
+          "uid": "107",
+          "home": "/var/lib/snmp",
+          "shell": "/bin/false"
+        },
+        {
+          "username": "sslh",
+          "uid": "108",
+          "home": "/nonexistent",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "stunnel",
+          "uid": "971",
+          "home": "/var/run/stunnel",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "cups-pk-helper",
+          "uid": "109",
+          "home": "/nonexistent",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "redsocks",
+          "uid": "110",
+          "home": "/var/run/redsocks",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "_gophish",
+          "uid": "111",
+          "home": "/var/lib/gophish",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "iodine",
+          "uid": "112",
+          "home": "/run/iodine",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "miredo",
+          "uid": "113",
+          "home": "/var/run/miredo",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "redis",
+          "uid": "114",
+          "home": "/var/lib/redis",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "postgres",
+          "uid": "115",
+          "home": "/var/lib/postgresql",
+          "shell": "/bin/bash"
+        },
+        {
+          "username": "mosquitto",
+          "uid": "970",
+          "home": "/var/lib/mosquitto",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "inetsim",
+          "uid": "116",
+          "home": "/var/lib/inetsim",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "mysql",
+          "uid": "969",
+          "home": "/nonexistent",
+          "shell": "/bin/false"
+        },
+        {
+          "username": "_gvm",
+          "uid": "117",
+          "home": "/var/lib/openvas",
+          "shell": "/usr/sbin/nologin"
+        },
+        {
+          "username": "kali",
+          "uid": "1000",
+          "home": "/home/kali",
+          "shell": "/usr/bin/zsh"
+        }
+      ],
+      "ssh": [
+        {
+          "path": "/etc/ssh/sshd_config",
+          "type": "file",
+          "status": "present"
+        },
+        {
+          "path": "/etc/ssh/ssh_config",
+          "type": "file",
+          "status": "present"
+        }
+      ],
+      "shell_startup": [
+        {
+          "path": "/home/kali/.bashrc",
+          "type": "file",
+          "status": "present"
+        },
+        {
+          "path": "/home/kali/.profile",
+          "type": "file",
+          "status": "present"
+        },
+        {
+          "path": "/home/kali/.zshrc",
+          "type": "file",
+          "status": "present"
+        }
+      ],
+      "systemd": [
+        {
+          "path": "/etc/systemd/system",
+          "type": "directory",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system",
+          "type": "directory",
+          "status": "present"
+        },
+        {
+          "path": "/lib/systemd/system",
+          "type": "directory",
+          "status": "present"
+        }
+      ],
+      "cron": [
+        {
+          "path": "/etc/crontab",
+          "type": "file",
+          "status": "present"
+        },
+        {
+          "path": "/etc/cron.d",
+          "type": "directory",
+          "status": "present"
+        },
+        {
+          "path": "/etc/cron.daily",
+          "type": "directory",
+          "status": "present"
+        },
+        {
+          "path": "/etc/cron.hourly",
+          "type": "directory",
+          "status": "present"
+        },
+        {
+          "path": "/etc/cron.weekly",
+          "type": "directory",
+          "status": "present"
+        },
+        {
+          "path": "/etc/cron.monthly",
+          "type": "directory",
+          "status": "present"
+        }
+      ],
+      "timers": [
+        {
+          "path": "/usr/lib/systemd/system/apt-daily-upgrade.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/apt-daily.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/dpkg-db-backup.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/e2scrub_all.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/fstrim.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/logrotate.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/man-db.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/pg_basebackup@.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/pg_compresswal@.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/pg_dump@.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/phpsessionclean.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/plocate-updatedb.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/sysstat-collect.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/sysstat-rotate.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/sysstat-summary.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        },
+        {
+          "path": "/usr/lib/systemd/system/systemd-tmpfiles-clean.timer",
+          "type": "systemd-timer",
+          "status": "present"
+        }
+      ]
+    }
   }
 }
