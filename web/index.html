@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PersistHawk | Security Monitor</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e9f0;
+      padding: 18px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 750;
+    }
+
+    .brand span {
+      color: #2563eb;
+    }
+
+    .status {
+      color: #15803d;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 1350px;
+      margin: 32px auto;
+      padding: 0 24px;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .subtitle {
+      color: #64748b;
+      margin-top: 0;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    button,
+    input,
+    select {
+      border-radius: 8px;
+      padding: 11px 14px;
+      border: 1px solid #dbe2ec;
+      font: inherit;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    input {
+      flex: 1;
+      background: white;
+    }
+
+    select {
+      background: white;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .card,
+    .panel {
+      background: white;
+      border: 1px solid #e5e9f0;
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+
+    .card small {
+      color: #64748b;
+    }
+
+    .card strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 28px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 14px 12px;
+      border-bottom: 1px solid #edf0f5;
+      font-size: 14px;
+    }
+
+    th {
+      color: #64748b;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    tbody tr {
+      cursor: pointer;
+      transition: background .15s ease;
+    }
+
+    tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .low {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .medium {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .high {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .path {
+      font-family: monospace;
+      color: #475569;
+      word-break: break-all;
+    }
+
+    #message {
+      color: #64748b;
+      margin-top: 16px;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(520px, 92vw);
+      height: 100vh;
+      background: white;
+      border-left: 1px solid #e2e8f0;
+      box-shadow: -10px 0 30px rgba(15, 23, 42, .12);
+      transform: translateX(100%);
+      transition: transform .2s ease;
+      z-index: 20;
+      overflow-y: auto;
+      padding: 26px;
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .close {
+      background: #f1f5f9;
+      color: #334155;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      font-size: 20px;
+    }
+
+    .detail {
+      border: 1px solid #e5e9f0;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .detail label {
+      display: block;
+      color: #64748b;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .detail value {
+      display: block;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .section-title {
+      margin: 26px 0 12px;
+      font-size: 14px;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .indicator {
+      padding: 10px 12px;
+      border-left: 3px solid #f59e0b;
+      background: #fffbeb;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .empty {
+      color: #64748b;
+      padding: 20px 0;
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">Persist<span>Hawk</span></div>
+  <div class="status">● Local Security Monitor</div>
+</header>
+
+<main>
+
+  <h1>Security Overview</h1>
+  <p class="subtitle">
+    Detect and investigate potential Linux persistence mechanisms.
+  </p>
+
+  <div class="toolbar">
+    <button onclick="runScan()">Run Security Scan</button>
+
+    <input
+      id="search"
+      placeholder="Search findings..."
+      oninput="renderFindings()"
+    >
+
+    <select id="severity" onchange="renderFindings()">
+      <option value="">All severities</option>
+      <option value="LOW">Low</option>
+      <option value="MEDIUM">Medium</option>
+      <option value="HIGH">High</option>
+    </select>
+  </div>
+
+  <section class="cards">
+    <div class="card">
+      <small>Total Findings</small>
+      <strong id="total">—</strong>
+    </div>
+
+    <div class="card">
+      <small>High Risk</small>
+      <strong id="high">—</strong>
+    </div>
+
+    <div class="card">
+      <small>Medium Risk</small>
+      <strong id="medium">—</strong>
+    </div>
+
+    <div class="card">
+      <small>Scan Status</small>
+      <strong id="scanStatus">Ready</strong>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Findings</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Severity</th>
+            <th>Category</th>
+            <th>Risk</th>
+            <th>Path / Finding</th>
+          </tr>
+        </thead>
+
+        <tbody id="findings">
+          <tr>
+            <td colspan="5">Run a scan to load findings.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p id="message"></p>
+  </section>
+
+</main>
+
+<aside id="drawer" class="drawer">
+
+  <div class="drawer-head">
+    <h2>Investigation</h2>
+    <button class="close" onclick="closeDrawer()">×</button>
+  </div>
+
+  <div id="details">
+    <div class="empty">Select a finding.</div>
+  </div>
+
+</aside>
+
+<script>
+  let allFindings = [];
+
+  async function runScan() {
+    document.getElementById("scanStatus").textContent = "Scanning...";
+    document.getElementById("message").textContent =
+      "Running security scan...";
+
+    try {
+      const response = await fetch("/api/scan");
+      const data = await response.json();
+
+      allFindings = data.findings || [];
+
+      document.getElementById("total").textContent = allFindings.length;
+
+      document.getElementById("high").textContent =
+        allFindings.filter(x => x.severity === "HIGH").length;
+
+      document.getElementById("medium").textContent =
+        allFindings.filter(x => x.severity === "MEDIUM").length;
+
+      document.getElementById("scanStatus").textContent =
+        data.success ? "Complete" : "Failed";
+
+      document.getElementById("message").textContent =
+        data.success
+          ? "Scan completed successfully."
+          : data.error || "Scan failed.";
+
+      renderFindings();
+
+    } catch (error) {
+      document.getElementById("scanStatus").textContent = "Error";
+      document.getElementById("message").textContent = error.message;
+    }
+  }
+
+  function renderFindings() {
+    const search =
+      document.getElementById("search").value.toLowerCase();
+
+    const severity =
+      document.getElementById("severity").value;
+
+    const table =
+      document.getElementById("findings");
+
+    const filtered = allFindings.filter(item => {
+      const matchesSearch =
+        `${item.category} ${item.path} ${item.id}`
+          .toLowerCase()
+          .includes(search);
+
+      const matchesSeverity =
+        !severity || item.severity === severity;
+
+      return matchesSearch && matchesSeverity;
+    });
+
+    if (!filtered.length) {
+      table.innerHTML = `
+        <tr>
+          <td colspan="5">No matching findings.</td>
+        </tr>
+      `;
+      return;
+    }
+
+    table.innerHTML = filtered.map(item => `
+      <tr onclick="investigate(${item.id})">
+        <td>#${item.id}</td>
+        <td>
+          <span class="badge ${item.severity.toLowerCase()}">
+            ${item.severity}
+          </span>
+        </td>
+        <td>${escapeHtml(item.category)}</td>
+        <td>${item.risk}</td>
+        <td class="path">${escapeHtml(item.path)}</td>
+      </tr>
+    `).join("");
+  }
+
+  async function investigate(id) {
+    const drawer = document.getElementById("drawer");
+    const details = document.getElementById("details");
+
+    drawer.classList.add("open");
+
+    details.innerHTML =
+      `<div class="empty">Loading investigation...</div>`;
+
+    try {
+      const response =
+        await fetch(`/api/investigate/${id}`);
+
+      const data = await response.json();
+
+      if (!data.success) {
+        details.innerHTML =
+          `<div class="empty">${escapeHtml(data.error || "Investigation failed.")}</div>`;
+        return;
+      }
+
+      const severityClass =
+        String(data.severity).toLowerCase();
+
+      const indicators =
+        data.risk_indicators.length
+          ? data.risk_indicators.map(x =>
+              `<div class="indicator">${escapeHtml(x)}</div>`
+            ).join("")
+          : `<div class="empty">No specific risk indicators detected.</div>`;
+
+      details.innerHTML = `
+        <div class="detail">
+          <label>Finding ID</label>
+          <value>#${data.finding_id}</value>
+        </div>
+
+        <div class="detail">
+          <label>Severity</label>
+          <value>
+            <span class="badge ${severityClass}">
+              ${escapeHtml(data.severity)}
+            </span>
+          </value>
+        </div>
+
+        <div class="detail">
+          <label>Category</label>
+          <value>${escapeHtml(data.category)}</value>
+        </div>
+
+        <div class="detail">
+          <label>Type</label>
+          <value>${escapeHtml(data.type)}</value>
+        </div>
+
+        <div class="detail">
+          <label>Path / Finding</label>
+          <value class="path">${escapeHtml(data.path)}</value>
+        </div>
+
+        <div class="detail">
+          <label>Risk Score</label>
+          <value>${escapeHtml(data.risk)}</value>
+        </div>
+
+        <div class="detail">
+          <label>Confidence Score</label>
+          <value>${escapeHtml(data.confidence)}</value>
+        </div>
+
+        <div class="detail">
+          <label>Integrity</label>
+          <value>${escapeHtml(data.integrity)}</value>
+        </div>
+
+        <div class="section-title">
+          Risk Indicators
+        </div>
+
+        ${indicators}
+
+        <div class="section-title">
+          Evidence
+        </div>
+
+        <div class="detail">
+          <value>
+            Investigation data is provided by the existing PersistHawk evidence pipeline.
+          </value>
+        </div>
+      `;
+
+    } catch (error) {
+      details.innerHTML =
+        `<div class="empty">${escapeHtml(error.message)}</div>`;
+    }
+  }
+
+  function closeDrawer() {
+    document.getElementById("drawer")
+      .classList.remove("open");
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? "N/A")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+</script>
+
+</body>
+</html>
