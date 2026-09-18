@@ -37,7 +37,11 @@ def run_combined_scan() -> dict[str, Any]:
         "timers": discover_systemd_timers(),
     }
 
-    return {
+    enriched_results = {
         category: enrich_findings(findings)
         for category, findings in raw_results.items()
     }
+
+    enriched_results["correlation"] = correlate_findings(enriched_results)
+
+    return enriched_results
