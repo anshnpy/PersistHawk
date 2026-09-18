@@ -66,6 +66,19 @@ def show_interesting_findings(report_path: str = "data/report.json") -> None:
         print(f"    Type       : {item.get('type', 'unknown')}")
         print(f"    Path       : {item.get('path', 'N/A')}")
 
+        evidence = item.get("evidence", {})
+        if evidence:
+            print("    Evidence:")
+            print(f"      SHA256   : {evidence.get('hash', {}).get('sha256', 'N/A')}")
+
+            metadata = evidence.get("metadata", {})
+            if metadata:
+                print(f"      Size     : {metadata.get('size', 'N/A')} bytes")
+                print(f"      Mode     : {metadata.get('mode', 'N/A')}")
+                print(f"      UID      : {metadata.get('uid', 'N/A')}")
+                print(f"      GID      : {metadata.get('gid', 'N/A')}")
+                print(f"      Modified : {metadata.get('modified', 'N/A')}")
+
         reasons = item.get("risk_reasons", [])
         confidence_reasons = item.get("confidence_reasons", [])
 
