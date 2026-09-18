@@ -7,6 +7,7 @@ from app.core.logger import setup_logging
 from app.discovery.cron import discover_cron_locations
 from app.discovery.systemd import discover_systemd_locations
 from app.discovery.timers import discover_systemd_timers
+from app.discovery.timer_metadata import analyze_timer_metadata
 from app.discovery.shell_startup import discover_shell_startup_files
 from app.discovery.ssh import discover_ssh_locations
 from app.discovery.users import discover_user_accounts
@@ -30,6 +31,12 @@ def main() -> None:
     parser.add_argument("--scan-systemd", action="store_true")
     parser.add_argument("--scan-cron", action="store_true")
     parser.add_argument("--scan-timers", action="store_true")
+
+    parser.add_argument(
+        "--analyze-timer",
+        metavar="PATH",
+        help="Analyze metadata of a systemd timer file.",
+    )
 
     parser.add_argument(
         "--log-level",
@@ -76,6 +83,13 @@ def main() -> None:
         print("\nSystemd Timer Persistence Locations:")
         for finding in discover_systemd_timers():
             print(f"- {finding['path']} ({finding['type']})")
+
+    if args.analyze_timer:
+        analysis = analyze_timer_metadata(args.analyze_timer)
+        print("\nTimer Metadata Analysis:")
+        print(f"Path: {analysis['path']}")
+        print(f"Status: {analysis['status']}")
+        print(f"Metadata: {analysis['metadata']}")
 
 
 if __name__ == "__main__":
