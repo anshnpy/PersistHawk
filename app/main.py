@@ -8,6 +8,7 @@ from app.discovery.cron import discover_cron_locations
 from app.discovery.systemd import discover_systemd_locations
 from app.discovery.timers import discover_systemd_timers
 from app.discovery.timer_metadata import analyze_timer_metadata
+from app.discovery.timer_detector import detect_suspicious_timer
 from app.discovery.shell_startup import discover_shell_startup_files
 from app.discovery.ssh import discover_ssh_locations
 from app.discovery.users import discover_user_accounts
@@ -36,6 +37,12 @@ def main() -> None:
         "--analyze-timer",
         metavar="PATH",
         help="Analyze metadata of a systemd timer file.",
+    )
+
+    parser.add_argument(
+        "--detect-timer",
+        metavar="PATH",
+        help="Detect review flags in a systemd timer.",
     )
 
     parser.add_argument(
@@ -90,6 +97,21 @@ def main() -> None:
         print(f"Path: {analysis['path']}")
         print(f"Status: {analysis['status']}")
         print(f"Metadata: {analysis['metadata']}")
+
+    if args.detect_timer:
+        analysis = analyze_timer_metadata(args.detect_timer)
+        detection = detect_suspicious_timer(analysis)
+
+        print("\nTimer Detection Results:")
+        print(f"Path: {detection['path']}")
+        print(f"Status: {detection['status']}")
+        print(f"Flag Count: {detection['flag_count']}")
+
+        for flag in detection["flags"]:
+            print(
+                f"- [{flag['severity']}] "
+                f"{flag['reason']}"
+            )
 
 
 if __name__ == "__main__":
