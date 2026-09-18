@@ -4,7 +4,7 @@ import argparse
 
 from app.core.config import settings
 from app.core.logger import setup_logging
-from app.core.report import export_json_report
+from app.core.report import export_json_report, export_evidence_report
 from app.core.scanner import run_combined_scan
 from app.discovery.cron import discover_cron_locations
 from app.discovery.systemd import discover_systemd_locations
@@ -133,7 +133,15 @@ def main() -> None:
             },
             args.export_report,
         )
+        evidence_output = export_evidence_report(
+            {
+                "status": "completed",
+                **scan_results,
+            }
+        )
+
         print(f"\nJSON report exported: {output}")
+        print(f"Evidence report exported: {evidence_output}")
 
 
 if __name__ == "__main__":

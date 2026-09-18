@@ -1,0 +1,145 @@
+{
+  "generated_at": "2026-09-18T09:44:47.726846+00:00",
+  "tool": "PersistHawk",
+  "evidence_count": 6,
+  "evidence": [
+    {
+      "category": "ssh",
+      "severity": "LOW",
+      "risk_score": 0,
+      "confidence_score": 50,
+      "evidence": {
+        "path": "/etc/ssh/sshd_config",
+        "hash": {
+          "path": "/etc/ssh/sshd_config",
+          "status": "hashed",
+          "sha256": "687a801a37df434f13b98963c128d90ec85ac4f862322fbacfa8de0d5014c079"
+        },
+        "metadata": {
+          "path": "/etc/ssh/sshd_config",
+          "status": "collected",
+          "size_bytes": 3371,
+          "mode": "-rw-r--r--",
+          "uid": 0,
+          "gid": 0,
+          "modified_at": 1789715916.6619813
+        }
+      }
+    },
+    {
+      "category": "ssh",
+      "severity": "LOW",
+      "risk_score": 0,
+      "confidence_score": 50,
+      "evidence": {
+        "path": "/etc/ssh/ssh_config",
+        "hash": {
+          "path": "/etc/ssh/ssh_config",
+          "status": "hashed",
+          "sha256": "ffb1630a4dbb211b505261d0ce1ed6dac78da37f6ac05c4fbb0ecde170bb5217"
+        },
+        "metadata": {
+          "path": "/etc/ssh/ssh_config",
+          "status": "collected",
+          "size_bytes": 1561,
+          "mode": "-rw-r--r--",
+          "uid": 0,
+          "gid": 0,
+          "modified_at": 1787503195.0
+        }
+      }
+    },
+    {
+      "category": "shell_startup",
+      "severity": "LOW",
+      "risk_score": 5,
+      "confidence_score": 55,
+      "evidence": {
+        "path": "/home/kali/.bashrc",
+        "hash": {
+          "path": "/home/kali/.bashrc",
+          "status": "hashed",
+          "sha256": "3198cdeb02295c3f433577b43966046d66c49748a9e542530160d86ad173c2b1"
+        },
+        "metadata": {
+          "path": "/home/kali/.bashrc",
+          "status": "collected",
+          "size_bytes": 5578,
+          "mode": "-rw-r--r--",
+          "uid": 1000,
+          "gid": 1000,
+          "modified_at": 1781620249.8714054
+        }
+      }
+    },
+    {
+      "category": "shell_startup",
+      "severity": "LOW",
+      "risk_score": 5,
+      "confidence_score": 55,
+      "evidence": {
+        "path": "/home/kali/.profile",
+        "hash": {
+          "path": "/home/kali/.profile",
+          "status": "hashed",
+          "sha256": "28b4a453b68dde64f814e94bab14ee651f4f162e15dd9920490aa1d49f05d2a4"
+        },
+        "metadata": {
+          "path": "/home/kali/.profile",
+          "status": "collected",
+          "size_bytes": 807,
+          "mode": "-rw-r--r--",
+          "uid": 1000,
+          "gid": 1000,
+          "modified_at": 1781620249.8674035
+        }
+      }
+    },
+    {
+      "category": "shell_startup",
+      "severity": "LOW",
+      "risk_score": 5,
+      "confidence_score": 55,
+      "evidence": {
+        "path": "/home/kali/.zshrc",
+        "hash": {
+          "path": "/home/kali/.zshrc",
+          "status": "hashed",
+          "sha256": "56ad0fc1f9cb19c6c8f3c1db7e370ba79629b8c08d645350e7697ba5fd58a3ed"
+        },
+        "metadata": {
+          "path": "/home/kali/.zshrc",
+          "status": "collected",
+          "size_bytes": 10882,
+          "mode": "-rw-r--r--",
+          "uid": 1000,
+          "gid": 1000,
+          "modified_at": 1781620249.8676593
+        }
+      }
+    },
+    {
+      "category": "cron",
+      "severity": "LOW",
+      "risk_score": 10,
+      "confidence_score": 50,
+      "evidence": {
+        "path": "/etc/crontab",
+        "hash": {
+          "path": "/etc/crontab",
+          "status": "hashed",
+          "sha256": "e25eb0e3303ea63ac7452139be788efa86d89a11005288e7150c0ac193d7e1f6"
+        },
+        "metadata": {
+          "path": "/etc/crontab",
+          "status": "collected",
+          "size_bytes": 1042,
+          "mode": "-rw-r--r--",
+          "uid": 0,
+          "gid": 0,
+          "modified_at": 1777276599.0
+        }
+      }
+    }
+  ]
+}
