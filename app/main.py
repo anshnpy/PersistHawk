@@ -14,6 +14,7 @@ from app.discovery.timer_detector import detect_suspicious_timer
 from app.discovery.shell_startup import discover_shell_startup_files
 from app.discovery.ssh import discover_ssh_locations
 from app.discovery.users import discover_user_accounts
+from app.investigation.inspect import investigate_finding
 
 
 def main() -> None:
@@ -53,6 +54,11 @@ def main() -> None:
         "--detect-timer",
         metavar="PATH",
         help="Detect review flags in a systemd timer.",
+    )
+    parser.add_argument(
+        "--investigate",
+        metavar="PATH",
+        help="Investigate a finding by evidence path.",
     )
 
     parser.add_argument(
@@ -121,6 +127,36 @@ def main() -> None:
             print(
                 f"- [{flag['severity']}] "
                 f"{flag['reason']}"
+            )
+
+    if args.investigate:
+        scan_results = run_combined_scan()
+        selected = None
+
+        for category, items in scan_results["findings"].items():
+            for item in items:
+                if item.get("path") == args.investigate:
+                    selected = dict(item)
+                    selected["category"] = category
+                    break
+            if selected:
+                break
+
+        print("\nInvestigation Results:")
+
+        if not selected:
+            print(f"Finding not found: {args.investigate}")
+        else:
+            result = investigate_finding(selected)
+            print(f"Category: {result['category']}")
+            print(f"Type: {result['type']}")
+            print(f"Path: {result['path']}")
+            print(f"Severity: {result['severity']}")
+            print(f"Risk: {result['risk_score']}")
+            print(f"Confidence: {result['confidence_score']}")
+            print(
+                f"Integrity: "
+                f"{result['integrity'].get('integrity_match', False)}"
             )
 
     if args.export_report:
