@@ -14,7 +14,7 @@ from app.discovery.timer_detector import detect_suspicious_timer
 from app.discovery.shell_startup import discover_shell_startup_files
 from app.discovery.ssh import discover_ssh_locations
 from app.discovery.users import discover_user_accounts
-from app.investigation.inspect import investigate_finding
+from app.investigation.inspect import investigate_finding, flatten_findings
 
 
 def main() -> None:
@@ -59,6 +59,19 @@ def main() -> None:
         "--investigate",
         metavar="PATH",
         help="Investigate a finding by evidence path.",
+    )
+
+    parser.add_argument(
+        "--findings",
+        action="store_true",
+        help="List numbered findings.",
+    )
+
+    parser.add_argument(
+        "--investigate-id",
+        type=int,
+        metavar="ID",
+        help="Investigate finding by numeric ID.",
     )
 
     parser.add_argument(
@@ -128,6 +141,46 @@ def main() -> None:
                 f"- [{flag['severity']}] "
                 f"{flag['reason']}"
             )
+
+    if args.findings or args.investigate_id is not None:
+        scan_results = run_combined_scan()
+        numbered_findings = flatten_findings(scan_results["findings"])
+
+        if args.findings:
+            print("\nFinding Index:")
+            for finding in numbered_findings:
+                print(
+                    f"[{finding['finding_id']}] "
+                    f"{finding.get('severity', 'UNKNOWN')} | "
+                    f"{finding.get('category', 'unknown')} | "
+                    f"risk={finding.get('risk_score', 0)} | "
+                    f"{finding.get('path', 'N/A')}"
+                )
+
+        if args.investigate_id is not None:
+            selected = next(
+                (
+                    finding
+                    for finding in numbered_findings
+                    if finding["finding_id"] == args.investigate_id
+                ),
+                None,
+            )
+
+            if selected is None:
+                print(f"Finding ID not found: {args.investigate_id}")
+            else:
+                result = investigate_finding(selected)
+
+                print("\nInvestigation Results:")
+                print(f"Finding ID: {result.get('finding_id')}")
+                print(f"Category: {result.get('category')}")
+                print(f"Type: {result.get('type')}")
+                print(f"Path: {result.get('path')}")
+                print(f"Severity: {result.get('severity')}")
+                print(f"Risk: {result.get('risk_score')}")
+                print(f"Confidence: {result.get('confidence_score')}")
+                print(f"Integrity: {result.get('integrity')}")
 
     if args.investigate:
         scan_results = run_combined_scan()
