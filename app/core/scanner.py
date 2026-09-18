@@ -9,10 +9,21 @@ from app.discovery.systemd import discover_systemd_locations
 from app.discovery.timers import discover_systemd_timers
 from app.discovery.users import discover_user_accounts
 from app.detection.risk import calculate_risk_score
+from app.evidence.hash import calculate_sha256
 
 
 def enrich_findings(findings: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    return [calculate_risk_score(finding) for finding in findings]
+    enriched = []
+
+    for finding in findings:
+        result = calculate_risk_score(finding)
+
+        if finding.get("type") == "file" and finding.get("path"):
+            result["evidence"] = calculate_sha256(finding["path"])
+
+        enriched.append(result)
+
+    return enriched
 
 
 def run_combined_scan() -> dict[str, Any]:

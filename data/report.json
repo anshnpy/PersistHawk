@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T09:25:56.075512+00:00",
+  "generated_at": "2026-09-18T09:26:58.779493+00:00",
   "tool": "PersistHawk",
   "report": {
     "status": "completed",
@@ -526,7 +526,12 @@
           "status": "present",
           "risk_score": 0,
           "severity": "LOW",
-          "risk_reasons": []
+          "risk_reasons": [],
+          "evidence": {
+            "path": "/etc/ssh/sshd_config",
+            "status": "hashed",
+            "sha256": "687a801a37df434f13b98963c128d90ec85ac4f862322fbacfa8de0d5014c079"
+          }
         },
         {
           "path": "/etc/ssh/ssh_config",
@@ -534,7 +539,12 @@
           "status": "present",
           "risk_score": 0,
           "severity": "LOW",
-          "risk_reasons": []
+          "risk_reasons": [],
+          "evidence": {
+            "path": "/etc/ssh/ssh_config",
+            "status": "hashed",
+            "sha256": "ffb1630a4dbb211b505261d0ce1ed6dac78da37f6ac05c4fbb0ecde170bb5217"
+          }
         }
       ],
       "shell_startup": [
@@ -546,7 +556,12 @@
           "severity": "LOW",
           "risk_reasons": [
             "Hidden configuration path detected."
-          ]
+          ],
+          "evidence": {
+            "path": "/home/kali/.bashrc",
+            "status": "hashed",
+            "sha256": "3198cdeb02295c3f433577b43966046d66c49748a9e542530160d86ad173c2b1"
+          }
         },
         {
           "path": "/home/kali/.profile",
@@ -556,7 +571,12 @@
           "severity": "LOW",
           "risk_reasons": [
             "Hidden configuration path detected."
-          ]
+          ],
+          "evidence": {
+            "path": "/home/kali/.profile",
+            "status": "hashed",
+            "sha256": "28b4a453b68dde64f814e94bab14ee651f4f162e15dd9920490aa1d49f05d2a4"
+          }
         },
         {
           "path": "/home/kali/.zshrc",
@@ -566,7 +586,12 @@
           "severity": "LOW",
           "risk_reasons": [
             "Hidden configuration path detected."
-          ]
+          ],
+          "evidence": {
+            "path": "/home/kali/.zshrc",
+            "status": "hashed",
+            "sha256": "56ad0fc1f9cb19c6c8f3c1db7e370ba79629b8c08d645350e7697ba5fd58a3ed"
+          }
         }
       ],
       "systemd": [
@@ -604,7 +629,12 @@
           "severity": "LOW",
           "risk_reasons": [
             "Cron persistence location detected."
-          ]
+          ],
+          "evidence": {
+            "path": "/etc/crontab",
+            "status": "hashed",
+            "sha256": "e25eb0e3303ea63ac7452139be788efa86d89a11005288e7150c0ac193d7e1f6"
+          }
         },
         {
           "path": "/etc/cron.d",
