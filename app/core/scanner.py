@@ -1,4 +1,4 @@
-"""Combined persistence scanner with risk scoring."""
+"""Combined persistence scanner with detection and evidence enrichment."""
 
 from typing import Any
 
@@ -8,19 +8,32 @@ from app.discovery.ssh import discover_ssh_locations
 from app.discovery.systemd import discover_systemd_locations
 from app.discovery.timers import discover_systemd_timers
 from app.discovery.users import discover_user_accounts
+
 from app.detection.risk import calculate_risk_score
 from app.detection.confidence import calculate_confidence
+from app.detection.correlation import correlate_findings
+
 from app.evidence.hash import calculate_sha256
+from app.evidence.metadata import collect_file_metadata
+from app.evidence.record import build_evidence_record
 
 
 def enrich_findings(findings: list[dict[str, Any]]) -> list[dict[str, Any]]:
     enriched = []
 
     for finding in findings:
-        result = calculate_confidence(calculate_risk_score(finding))
+        result = calculate_confidence(
+            calculate_risk_score(finding)
+        )
 
         if finding.get("type") == "file" and finding.get("path"):
-            result["evidence"] = calculate_sha256(finding["path"])
+            file_path = finding["path"]
+
+            result["evidence"] = build_evidence_record(
+                file_path,
+                calculate_sha256(file_path),
+                collect_file_metadata(file_path),
+            )
 
         enriched.append(result)
 
@@ -42,6 +55,12 @@ def run_combined_scan() -> dict[str, Any]:
         for category, findings in raw_results.items()
     }
 
-    enriched_results["correlation"] = correlate_findings(enriched_results)
+    correlation_input = {
+        category: findings
+        for category, findings in enriched_results.items()
+    }
 
-    return enriched_results
+    return {
+        "findings": enriched_results,
+        "correlation": correlate_findings(correlation_input),
+    }
