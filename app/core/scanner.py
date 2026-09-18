@@ -9,6 +9,7 @@ from app.discovery.systemd import discover_systemd_locations
 from app.discovery.timers import discover_systemd_timers
 from app.discovery.users import discover_user_accounts
 from app.detection.risk import calculate_risk_score
+from app.detection.confidence import calculate_confidence
 from app.evidence.hash import calculate_sha256
 
 
@@ -16,7 +17,7 @@ def enrich_findings(findings: list[dict[str, Any]]) -> list[dict[str, Any]]:
     enriched = []
 
     for finding in findings:
-        result = calculate_risk_score(finding)
+        result = calculate_confidence(calculate_risk_score(finding))
 
         if finding.get("type") == "file" and finding.get("path"):
             result["evidence"] = calculate_sha256(finding["path"])
