@@ -8,6 +8,7 @@ from app.discovery.cron import discover_cron_locations
 from app.discovery.systemd import discover_systemd_locations
 from app.discovery.shell_startup import discover_shell_startup_files
 from app.discovery.ssh import discover_ssh_locations
+from app.discovery.users import discover_user_accounts
 
 
 def main() -> None:
@@ -20,6 +21,12 @@ def main() -> None:
         "--version",
         action="version",
         version=f"%(prog)s {settings.version}",
+    )
+
+    parser.add_argument(
+        "--scan-users",
+        action="store_true",
+        help="Discover local user accounts.",
     )
 
     parser.add_argument(
@@ -58,6 +65,16 @@ def main() -> None:
 
     print(f"{settings.app_name} {settings.version}")
     print("Core foundation initialized.")
+
+    if args.scan_users:
+        print("\nLocal User Accounts:")
+
+        for finding in discover_user_accounts():
+            print(
+                f"- {finding['username']} "
+                f"(UID: {finding['uid']}, "
+                f"Shell: {finding['shell']})"
+            )
 
     if args.scan_ssh:
         print("\nSSH Persistence Locations:")
