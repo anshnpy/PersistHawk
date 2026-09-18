@@ -129,7 +129,7 @@ def main() -> None:
         output = export_json_report(
             {
                 "status": "completed",
-                "findings": scan_results,
+                **scan_results,
             },
             args.export_report,
         )
