@@ -22,18 +22,27 @@ def enrich_findings(findings: list[dict[str, Any]]) -> list[dict[str, Any]]:
     enriched = []
 
     for finding in findings:
-        result = calculate_confidence(
-            calculate_risk_score(finding)
-        )
+        result = dict(finding)
 
-        if finding.get("type") == "file" and finding.get("path"):
-            file_path = finding["path"]
+        risk_data = calculate_risk_score(result)
+        confidence_data = calculate_confidence(risk_data)
 
-            result["evidence"] = build_evidence_record(
-                file_path,
-                calculate_sha256(file_path),
-                collect_file_metadata(file_path),
-            )
+        result.update(confidence_data)
+
+        file_path = result.get("path")
+
+        if (
+            file_path
+            and result.get("type") == "file"
+        ):
+            try:
+                result["evidence"] = build_evidence_record(
+                    file_path,
+                    calculate_sha256(file_path),
+                    collect_file_metadata(file_path),
+                )
+            except (OSError, PermissionError) as error:
+                result["evidence_error"] = str(error)
 
         enriched.append(result)
 
