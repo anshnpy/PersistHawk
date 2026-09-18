@@ -6,6 +6,7 @@ from app.core.config import settings
 from app.core.logger import setup_logging
 from app.discovery.cron import discover_cron_locations
 from app.discovery.systemd import discover_systemd_locations
+from app.discovery.shell_startup import discover_shell_startup_files
 
 
 def main() -> None:
@@ -18,6 +19,12 @@ def main() -> None:
         "--version",
         action="version",
         version=f"%(prog)s {settings.version}",
+    )
+
+    parser.add_argument(
+        "--scan-shell",
+        action="store_true",
+        help="Discover shell startup persistence files.",
     )
 
     parser.add_argument(
@@ -44,6 +51,15 @@ def main() -> None:
 
     print(f"{settings.app_name} {settings.version}")
     print("Core foundation initialized.")
+
+    if args.scan_shell:
+        print("\nShell Startup Persistence Files:")
+
+        for finding in discover_shell_startup_files():
+            print(
+                f"- {finding['path']} "
+                f"({finding['type']})"
+            )
 
     if args.scan_systemd:
         print("\nSystemd Persistence Locations:")
