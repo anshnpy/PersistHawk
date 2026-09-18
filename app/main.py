@@ -182,6 +182,15 @@ def main() -> None:
                 print(f"Confidence: {result.get('confidence_score')}")
                 print(f"Integrity: {result.get('integrity')}")
 
+                print("\nRisk Indicators:")
+                risk_reasons = selected.get("risk_reasons") or []
+
+                if risk_reasons:
+                    for reason in risk_reasons:
+                        print(f"- {reason}")
+                else:
+                    print("- No specific risk indicators detected.")
+
                 evidence = result.get("evidence") or {}
 
                 if evidence:
